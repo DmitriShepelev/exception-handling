@@ -7,7 +7,14 @@ namespace ExceptionHandling
         public static bool CatchException(object obj)
         {
             // TODO #1. Add a try-catch construction here to catch all exceptions. The method should return true if an exception is thrown; otherwise false.
-            ThrowException(obj);
+            try
+            {
+                ThrowException(obj);
+            }
+            catch (Exception)
+            {
+                return true;
+            }
 
             return false;
         }
@@ -17,7 +24,15 @@ namespace ExceptionHandling
             exceptionMessage = string.Empty;
 
             // TODO #2. Add a try-catch construction here to catch "ArgumentNullException". The method should return true if an "ArgumentNullException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
-            ThrowException(obj);
+            try
+            {
+                ThrowException(obj);
+            }
+            catch (ArgumentNullException e)
+            {
+                exceptionMessage = e.Message;
+                return true;
+            }
 
             return false;
         }
@@ -27,7 +42,15 @@ namespace ExceptionHandling
             exceptionMessage = string.Empty;
 
             // TODO #3. Add a try-catch construction here to catch "ArgumentException". The method should return true if an "ArgumentException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
-            ThrowException(new object(), i);
+            try
+            {
+                ThrowException(new object(), i);
+            }
+            catch (ArgumentException e)
+            {
+                exceptionMessage = e.Message;
+                return true;
+            }
 
             return false;
         }
@@ -37,7 +60,15 @@ namespace ExceptionHandling
             exceptionMessage = string.Empty;
 
             // TODO #4. Add a try-catch construction here to catch "ArgumentOutOfRangeException". The method should return true if an "ArgumentOutOfRangeException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
-            ThrowException(new object(), 1, j);
+            try
+            {
+                ThrowException(new object(), 1, j);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                exceptionMessage = e.Message;
+                return true;
+            }
 
             return false;
         }
@@ -52,7 +83,30 @@ namespace ExceptionHandling
             // * ArgumentNullException
             // * ArgumentOutOfRangeException
             // The method should return true if an exception of any type is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
-            ThrowException(obj, i, j, throwException);
+            try
+            {
+                ThrowException(obj, i, j, throwException);
+            }
+            catch (ArgumentNullException e)
+            {
+                exceptionMessage = e.Message;
+                return true;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                exceptionMessage = e.Message;
+                return true;
+            }
+            catch (ArgumentException e)
+            {
+                exceptionMessage = e.Message;
+                return true;
+            }
+            catch (Exception e)
+            {
+                exceptionMessage = e.Message;
+                return true;
+            }
 
             return false;
         }
