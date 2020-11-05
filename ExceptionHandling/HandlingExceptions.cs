@@ -7,7 +7,7 @@ namespace ExceptionHandling
     {
         public static bool CatchException(object obj)
         {
-            // TODO #1. Add a try-catch construction here to catch all exceptions. The method should return true if an exception is thrown; otherwise false.
+            // #1. Add a try-catch construction here to catch all exceptions. The method should return true if an exception is thrown; otherwise false.
             try
             {
                 ThrowException(obj);

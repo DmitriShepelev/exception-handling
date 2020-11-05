@@ -8,7 +8,7 @@ namespace ExceptionHandling
     {
         public static void CheckParameterAndThrowException(object obj)
         {
-            // TODO #6. Replace the method code to throw an "ArgumentNullException" exception if the "obj" parameter is null; otherwise return from the method with no actions. Use "nameof" expression to get a parameter name for an exception constructor.
+            // #6. Replace the method code to throw an "ArgumentNullException" exception if the "obj" parameter is null; otherwise return from the method with no actions. Use "nameof" expression to get a parameter name for an exception constructor.
             if (obj == null)
             {
                 throw new ArgumentNullException(nameof(obj));
