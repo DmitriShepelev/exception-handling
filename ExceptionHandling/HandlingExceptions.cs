@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ExceptionHandling
 {
@@ -23,7 +24,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #2. Add a try-catch construction here to catch "ArgumentNullException". The method should return true if an "ArgumentNullException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
+            // #2. Add a try-catch construction here to catch "ArgumentNullException". The method should return true if an "ArgumentNullException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
             try
             {
                 ThrowException(obj);
@@ -41,7 +42,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #3. Add a try-catch construction here to catch "ArgumentException". The method should return true if an "ArgumentException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
+            // #3. Add a try-catch construction here to catch "ArgumentException". The method should return true if an "ArgumentException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
             try
             {
                 ThrowException(new object(), i);
@@ -59,7 +60,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #4. Add a try-catch construction here to catch "ArgumentOutOfRangeException". The method should return true if an "ArgumentOutOfRangeException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
+            // #4. Add a try-catch construction here to catch "ArgumentOutOfRangeException". The method should return true if an "ArgumentOutOfRangeException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
             try
             {
                 ThrowException(new object(), 1, j);
@@ -77,7 +78,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #5. Add a try-catch construction here to catch exceptions with these types:
+            // #5. Add a try-catch construction here to catch exceptions with these types:
             // * Exception
             // * ArgumentException
             // * ArgumentNullException
@@ -112,6 +113,7 @@ namespace ExceptionHandling
         }
 
         // Don't touch the ThrowException method.
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types", Justification = "Don't touch the ThrowException method")]
         private static void ThrowException(object obj, int i = 1, int j = 1, bool throwException = false)
         {
             if (obj is null)
