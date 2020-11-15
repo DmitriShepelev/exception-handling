@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ExceptionHandling
 {
@@ -6,7 +7,7 @@ namespace ExceptionHandling
     {
         public static bool CatchException(object obj)
         {
-            // TODO #1. Add a try-catch construction here to catch all exceptions. The method should return true if an exception is thrown; otherwise false.
+            // #1. Add a try-catch construction here to catch all exceptions. The method should return true if an exception is thrown; otherwise false.
             try
             {
                 ThrowException(obj);
@@ -23,7 +24,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #2. Add a try-catch construction here to catch "ArgumentNullException". The method should return true if an "ArgumentNullException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
+            // #2. Add a try-catch construction here to catch "ArgumentNullException". The method should return true if an "ArgumentNullException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
             try
             {
                 ThrowException(obj);
@@ -41,7 +42,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #3. Add a try-catch construction here to catch "ArgumentException". The method should return true if an "ArgumentException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
+            // #3. Add a try-catch construction here to catch "ArgumentException". The method should return true if an "ArgumentException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
             try
             {
                 ThrowException(new object(), i);
@@ -59,7 +60,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #4. Add a try-catch construction here to catch "ArgumentOutOfRangeException". The method should return true if an "ArgumentOutOfRangeException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
+            // #4. Add a try-catch construction here to catch "ArgumentOutOfRangeException". The method should return true if an "ArgumentOutOfRangeException" is thrown and set "exceptionMessage" parameter to an exception message; otherwise the method should return false.
             try
             {
                 ThrowException(new object(), 1, j);
@@ -77,7 +78,7 @@ namespace ExceptionHandling
         {
             exceptionMessage = string.Empty;
 
-            // TODO #5. Add a try-catch construction here to catch exceptions with these types:
+            // #5. Add a try-catch construction here to catch exceptions with these types:
             // * Exception
             // * ArgumentException
             // * ArgumentNullException
@@ -112,6 +113,7 @@ namespace ExceptionHandling
         }
 
         // Don't touch the ThrowException method.
+        [SuppressMessage("Microsoft.Usage", "CA2201", Justification = "Task requirement")]
         private static void ThrowException(object obj, int i = 1, int j = 1, bool throwException = false)
         {
             if (obj is null)
@@ -131,7 +133,9 @@ namespace ExceptionHandling
 
             if (throwException)
             {
+#pragma warning disable S112 // General exceptions should never be thrown
                 throw new Exception("exception is thrown.");
+#pragma warning restore S112 // General exceptions should never be thrown
             }
         }
     }
